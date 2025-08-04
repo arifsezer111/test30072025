@@ -6,8 +6,7 @@ import { useCart } from '../contexts/CartContext';
 import { Button } from '../components/ui/button';
 import { toast } from 'sonner';
 import { Heart, Share, ShoppingCart } from 'lucide-react';
-import { FindYourSizerWidgetWithoutProfile } from '@yoursizer/widget';
-
+import { FindYourSizerWidget } from '@yoursizer/widget';
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
@@ -21,7 +20,9 @@ const ProductDetail = () => {
       setSelectedSize(result.size);
     }
   };
-
+const handleSizeRecommendedSimple = (size: string) => {
+    setSelectedSize(size);
+  };
   const product = products.find(p => p.id === id);
 
   if (!product) {
@@ -195,14 +196,17 @@ const ProductDetail = () => {
             clothingType="tshirt"
             /> */}
 
-            <FindYourSizerWidgetWithoutProfile
-             productId={product.productId}
-             brandId={product.brandId}
-             clothingType={product.clothingType}
-             licenseStatus={{ isValid: true }}
-             licenseKey="c92faa18-6090-4767-aa7c-77f05d4a7d7f"
-             onSizeRecommended={handleSizeRecommended}
-            />
+            <FindYourSizerWidget 
+                buttonText="Demo Store Yoursizer"
+                position="center"
+                className="w-full flex"
+                // buttonBg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                licenseKey="c92faa18-6090-4767-aa7c-77f05d4a7d7f"
+                onSizeRecommended={handleSizeRecommendedSimple}
+                productId={product.productId}
+                brandId={product.brandId}
+                clothingType="upperwear"
+              />
 
             {/* Action Buttons */}
             <div className="space-y-4">
