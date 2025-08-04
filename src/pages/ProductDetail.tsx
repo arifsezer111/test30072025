@@ -15,11 +15,8 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState<number>(0);
   const [quantity, setQuantity] = useState<number>(1);
 
-  const handleSizeRecommended = (result: { success: boolean; size: string; message?: string; error?: string }) => {
-    if (result.success && result.size) {
-      setSelectedSize(result.size);
-    }
-  };
+ 
+
 const handleSizeRecommendedSimple = (size: string) => {
     setSelectedSize(size);
   };
