@@ -200,9 +200,9 @@ const handleSizeRecommendedSimple = (size: string) => {
                 // buttonBg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                 licenseKey="c92faa18-6090-4767-aa7c-77f05d4a7d7f"
                 onSizeRecommended={handleSizeRecommendedSimple}
-                productId={product.productId}
-                brandId={product.brandId}
-                clothingType="upperwear"
+                productId="default_jacket_female_147"
+                brandId="default"
+                clothingType="jackets"
               />
 
             {/* Action Buttons */}
